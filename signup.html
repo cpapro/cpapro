@@ -24,23 +24,28 @@
     </form>
   </div>
 
-  <script>
-    const signupForm = document.getElementById('signup-form');
-    const signupErrorMsg = document.getElementById('signup-error-msg');
+ <script>
+  const signupForm = document.getElementById('signup-form');
+  const signupErrorMsg = document.getElementById('signup-error-msg');
 
-    signupForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+  signupForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    
-        // Redirect to dashboard.html
-        window.location.href = "https://cpapro.github.io/cpapro/dashboard.html";
-      }
-    });
-  </script>
+    if (name === '' || email === '' || password === '') {
+      signupErrorMsg.textContent = 'Please fill in all input fields.';
+      signupErrorMsg.classList.remove('hidden');
+    } else {
+      signupErrorMsg.classList.add('hidden');
+      // ✅ Correct redirection to GitHub Pages dashboard
+      window.location.href = "https://cpapro.github.io/cpapro/dashboard.html";
+    }
+  });
+</script>
+
 
 </body>
 </html>
