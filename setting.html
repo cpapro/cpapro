@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - CPA Pro</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Sidebar -->
+  <div class="flex h-screen">
+    <aside class="w-64 bg-blue-600 shadow-md hidden md:block text-white">
+      <div class="p-6 text-center">
+        <h1 class="text-2xl font-bold">CPA Pro</h1>
+      </div>
+      <nav class="mt-10 px-6 space-y-4">
+        <a href="dashboard.html" class="block text-white hover:text-gray-200 transition duration-300">Dashboard</a>
+        <a href="offers.html" class="block text-white hover:text-gray-200 transition duration-300">Offers</a>
+        <a href="withdraw.html" class="block text-white hover:text-gray-200 transition duration-300">Withdraw</a>
+        <a href="settings.html" class="block text-white hover:text-gray-200 transition duration-300 font-bold underline">Settings</a>
+        <a href="signin.html" class="block text-red-500 mt-6">Sign Out</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6 md:p-10">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Account Settings</h2>
+
+      <div class="bg-white shadow-lg rounded-lg p-6 max-w-3xl">
+    
+
+          <!-- Password Update -->
+          <h3 class="text-xl font-semibold text-gray-700 mt-10 mb-4">Change Password</h3>
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">Current Password</label>
+            <input type="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">New Password</label>
+            <input type="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">Confirm New Password</label>
+            <input type="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          </div>
+
+          <div class="pt-6">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow">Update Settings</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
