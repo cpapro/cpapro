@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - CPA Pro</title>
+
+  <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a2e0e6ad60.js" crossorigin="anonymous"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body class="bg-gray-50 font-sans flex min-h-screen">
@@ -15,22 +21,27 @@
     <div class="flex items-center justify-center h-20 border-b border-blue-600">
       <h1 class="text-2xl font-bold tracking-wide">CPA Pro</h1>
     </div>
+
     <nav class="flex-1 px-6 py-8 space-y-4 overflow-y-auto">
       <a href="dashboard.html" class="flex items-center space-x-3 hover:bg-blue-600 px-4 py-3 rounded-lg transition">
-        <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Dashboard</span>
       </a>
       <a href="https://cpapro.github.io/cpapro/offer.html" class="flex items-center space-x-3 hover:bg-blue-600 px-4 py-3 rounded-lg transition">
-        <i class="fas fa-tags"></i><span>Offers</span>
+        <i class="fas fa-tags"></i>
+        <span>Offers</span>
       </a>
       <a href="https://cpapro.github.io/cpapro/withdraw.html" class="flex items-center space-x-3 hover:bg-blue-600 px-4 py-3 rounded-lg transition">
-        <i class="fas fa-wallet"></i><span>Withdraw</span>
+        <i class="fas fa-wallet"></i>
+        <span>Withdraw</span>
       </a>
       <a href="https://cpapro.github.io/cpapro/setting.html" class="flex items-center space-x-3 hover:bg-blue-600 px-4 py-3 rounded-lg transition">
-        <i class="fas fa-cog"></i><span>Settings</span>
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
       </a>
     </nav>
 
-    <!-- Sign Out -->
+    <!-- Sign Out Button -->
     <div class="px-6 py-4">
       <a href="https://cpapro.github.io/cpapro/home.html" class="flex items-center justify-center bg-red-500 hover:bg-red-600 w-full py-3 rounded-lg font-semibold transition">
         <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
@@ -38,7 +49,7 @@
     </div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Main Area -->
   <div class="flex-1 flex flex-col md:ml-64">
 
     <!-- Top Bar -->
@@ -49,6 +60,8 @@
           <span class="hidden md:block font-medium text-gray-700">Profile</span>
           <i class="fas fa-chevron-down text-gray-500"></i>
         </button>
+
+        <!-- Dropdown Menu -->
         <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-2 hidden z-50">
           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
@@ -57,35 +70,38 @@
       </div>
     </div>
 
-    <!-- Dashboard Content -->
+    <!-- Main Content -->
     <main class="p-6 md:p-10">
       <h2 class="text-3xl font-bold text-gray-800 mb-6">Dashboard Overview</h2>
 
       <!-- Stats Cards -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-          <div class="flex justify-center mb-4">
+          <div class="flex items-center justify-center mb-4">
             <i class="fas fa-eye text-blue-500 text-3xl"></i>
           </div>
           <p class="text-gray-500 text-sm uppercase">Impressions</p>
           <h3 class="text-2xl font-bold text-gray-800 mt-1">0</h3>
         </div>
+
         <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-          <div class="flex justify-center mb-4">
+          <div class="flex items-center justify-center mb-4">
             <i class="fas fa-mouse-pointer text-green-500 text-3xl"></i>
           </div>
           <p class="text-gray-500 text-sm uppercase">Clicks</p>
           <h3 class="text-2xl font-bold text-gray-800 mt-1">0</h3>
         </div>
+
         <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-          <div class="flex justify-center mb-4">
+          <div class="flex items-center justify-center mb-4">
             <i class="fas fa-dollar-sign text-yellow-500 text-3xl"></i>
           </div>
           <p class="text-gray-500 text-sm uppercase">Earnings</p>
           <h3 class="text-2xl font-bold text-gray-800 mt-1">$0</h3>
         </div>
+
         <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-          <div class="flex justify-center mb-4">
+          <div class="flex items-center justify-center mb-4">
             <i class="fas fa-coins text-purple-500 text-3xl"></i>
           </div>
           <p class="text-gray-500 text-sm uppercase">Total Earnings</p>
@@ -109,17 +125,23 @@
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Click and Earn</td>
                 <td class="py-4 px-6 text-blue-600">$0.87 / Click</td>
-                <td class="py-4 px-6"><span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Active</span></td>
+                <td class="py-4 px-6">
+                  <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Active</span>
+                </td>
               </tr>
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Mobile App Install</td>
                 <td class="py-4 px-6 text-blue-600">$1.20 / Action</td>
-                <td class="py-4 px-6"><span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Active</span></td>
+                <td class="py-4 px-6">
+                  <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Active</span>
+                </td>
               </tr>
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Survey Complete</td>
                 <td class="py-4 px-6 text-blue-600">$1.75 / Lead</td>
-                <td class="py-4 px-6"><span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Active</span></td>
+                <td class="py-4 px-6">
+                  <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Active</span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -140,15 +162,21 @@
             <tbody>
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Mobile App Install</td>
-                <td class="py-4 px-6"><span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span></td>
+                <td class="py-4 px-6">
+                  <span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span>
+                </td>
               </tr>
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Click and Earn</td>
-                <td class="py-4 px-6"><span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span></td>
+                <td class="py-4 px-6">
+                  <span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span>
+                </td>
               </tr>
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Survey Complete</td>
-                <td class="py-4 px-6"><span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span></td>
+                <td class="py-4 px-6">
+                  <span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -159,21 +187,21 @@
       <section class="mt-10">
         <h3 class="text-2xl font-semibold mb-4 text-gray-800">Notifications</h3>
         <div class="bg-white shadow-md rounded-xl p-6 space-y-4">
-          <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
+          <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
             <div class="flex items-center space-x-3">
               <span class="text-2xl">🎉</span>
               <span class="font-medium text-gray-700">New Offer "Click and Earn" Added!</span>
             </div>
             <span class="text-xs text-gray-500">2 hours ago</span>
           </div>
-          <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
+          <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
             <div class="flex items-center space-x-3">
               <span class="text-2xl">💰</span>
               <span class="font-medium text-gray-700">Payment of $25 Sent to PayPal</span>
             </div>
             <span class="text-xs text-gray-500">1 day ago</span>
           </div>
-          <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
+          <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
             <div class="flex items-center space-x-3">
               <span class="text-2xl">⚙️</span>
               <span class="font-medium text-gray-700">Profile Settings Updated</span>
@@ -183,42 +211,10 @@
         </div>
       </section>
 
-      <!-- Offer Performance -->
-      <section class="mt-10 mb-10">
-        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Offer Performance</h3>
-        <div class="bg-white shadow-md rounded-xl overflow-x-auto">
-          <table class="w-full text-left">
-            <thead class="bg-blue-100 text-gray-700 uppercase text-sm">
-              <tr>
-                <th class="py-4 px-6">Offer</th>
-                <th class="py-4 px-6">Views</th>
-                <th class="py-4 px-6">Conversion Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="hover:bg-gray-50 transition">
-                <td class="py-4 px-6 font-medium">Click and Earn</td>
-                <td class="py-4 px-6">453</td>
-                <td class="py-4 px-6 text-green-600 font-semibold">0.6%</td>
-              </tr>
-              <tr class="hover:bg-gray-50 transition">
-                <td class="py-4 px-6 font-medium">Mobile App Install</td>
-                <td class="py-4 px-6">8,500</td>
-                <td class="py-4 px-6 text-green-600 font-semibold">6%</td>
-              </tr>
-              <tr class="hover:bg-gray-50 transition">
-                <td class="py-4 px-6 font-medium">Survey Complete</td>
-                <td class="py-4 px-6">3,200</td>
-                <td class="py-4 px-6 text-green-600 font-semibold">2.5%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
     </main>
 
   </div>
 
 </body>
+
 </html>
