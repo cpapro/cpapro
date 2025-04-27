@@ -13,10 +13,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
-<body class="bg-gray-50 font-sans flex min-h-screen">
+<body class="bg-gray-50 font-sans flex min-h-screen relative">
+
+  <!-- Mobile Top Bar -->
+  <div class="md:hidden flex items-center justify-between bg-white p-4 shadow-md w-full fixed z-50">
+    <button id="menuButton" class="text-2xl text-gray-600 focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+    <h1 class="text-xl font-bold text-gray-700">CPA Pro</h1>
+  </div>
 
   <!-- Sidebar -->
-  <aside class="hidden md:flex w-64 bg-gradient-to-b from-blue-700 to-blue-800 text-white flex-col fixed h-full">
+  <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-blue-700 to-blue-800 text-white flex-col transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:flex z-40">
     <div class="flex items-center justify-center h-20 border-b border-blue-600">
       <h1 class="text-2xl font-bold tracking-wide">CPA Pro</h1>
     </div>
@@ -48,10 +56,10 @@
   </aside>
 
   <!-- Main Content Area -->
-  <div class="flex-1 flex flex-col md:ml-64">
+  <div class="flex-1 flex flex-col pt-16 md:pt-0 md:ml-64">
 
     <!-- Top Bar -->
-    <div class="flex justify-end items-center bg-white p-4 shadow-md relative">
+    <div class="hidden md:flex justify-end items-center bg-white p-4 shadow-md relative">
       <div class="relative">
         <button id="profileButton" class="flex items-center space-x-2 focus:outline-none">
           <i class="fas fa-user-circle text-3xl text-gray-600"></i>
@@ -213,13 +221,22 @@
 
   </div>
 
-  <!-- Optional: Add small script for dropdown toggle -->
+  <!-- Scripts -->
   <script>
+    // Profile dropdown
     const profileButton = document.getElementById('profileButton');
     const profileDropdown = document.getElementById('profileDropdown');
 
     profileButton.addEventListener('click', () => {
       profileDropdown.classList.toggle('hidden');
+    });
+
+    // Sidebar toggle
+    const menuButton = document.getElementById('menuButton');
+    const sidebar = document.getElementById('sidebar');
+
+    menuButton.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
     });
   </script>
 
