@@ -11,13 +11,12 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 
 <body class="bg-gray-50 font-sans flex min-h-screen">
 
   <!-- Sidebar -->
-  <aside class="w-64 bg-gradient-to-b from-blue-700 to-blue-800 text-white flex flex-col fixed h-full">
+  <aside class="hidden md:flex w-64 bg-gradient-to-b from-blue-700 to-blue-800 text-white flex-col fixed h-full">
     <div class="flex items-center justify-center h-20 border-b border-blue-600">
       <h1 class="text-2xl font-bold tracking-wide">CPA Pro</h1>
     </div>
@@ -41,7 +40,6 @@
       </a>
     </nav>
 
-    <!-- Sign Out Button -->
     <div class="px-6 py-4">
       <a href="https://cpapro.github.io/cpapro/home.html" class="flex items-center justify-center bg-red-500 hover:bg-red-600 w-full py-3 rounded-lg font-semibold transition">
         <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
@@ -49,7 +47,7 @@
     </div>
   </aside>
 
-  <!-- Main Area -->
+  <!-- Main Content Area -->
   <div class="flex-1 flex flex-col md:ml-64">
 
     <!-- Top Bar -->
@@ -97,7 +95,7 @@
             <i class="fas fa-dollar-sign text-yellow-500 text-3xl"></i>
           </div>
           <p class="text-gray-500 text-sm uppercase">Earnings</p>
-          <h3 class="text-2xl font-bold text-gray-800 mt-1">$2</h3>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1">$0</h3>
         </div>
 
         <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
@@ -105,11 +103,11 @@
             <i class="fas fa-coins text-purple-500 text-3xl"></i>
           </div>
           <p class="text-gray-500 text-sm uppercase">Total Earnings</p>
-          <h3 class="text-2xl font-bold text-gray-800 mt-1">$10</h3>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1">$0</h3>
         </div>
       </div>
 
-      <!-- Top Offers -->
+      <!-- Top Offers Section -->
       <section class="mt-10">
         <h3 class="text-2xl font-semibold mb-4 text-gray-800">Top Offers</h3>
         <div class="bg-white shadow-md rounded-xl overflow-x-auto">
@@ -148,7 +146,7 @@
         </div>
       </section>
 
-      <!-- Active Campaigns -->
+      <!-- Active Campaigns Section -->
       <section class="mt-10">
         <h3 class="text-2xl font-semibold mb-4 text-gray-800">Active Campaigns</h3>
         <div class="bg-white shadow-md rounded-xl overflow-x-auto">
@@ -183,7 +181,7 @@
         </div>
       </section>
 
-      <!-- Notifications -->
+      <!-- Notifications Section -->
       <section class="mt-10">
         <h3 class="text-2xl font-semibold mb-4 text-gray-800">Notifications</h3>
         <div class="bg-white shadow-md rounded-xl p-6 space-y-4">
@@ -214,6 +212,16 @@
     </main>
 
   </div>
+
+  <!-- Optional: Add small script for dropdown toggle -->
+  <script>
+    const profileButton = document.getElementById('profileButton');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    profileButton.addEventListener('click', () => {
+      profileDropdown.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 
