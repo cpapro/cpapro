@@ -21,6 +21,29 @@
       <i class="fas fa-bars"></i>
     </button>
     <h1 class="text-xl font-bold text-gray-700">CPA Pro</h1>
+    <div class="relative">
+      <button id="mobileProfileButton" class="text-2xl text-gray-600 focus:outline-none">
+        <i class="fas fa-user-circle"></i>
+      </button>
+      <div id="mobileProfileDropdown" class="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg py-2 hidden z-50">
+        <div class="px-4 py-2 border-b">
+          <p class="text-sm text-gray-600"><strong>User ID:</strong> 3271</p>
+          <p class="text-sm text-gray-600"><strong>Ref ID:</strong> Zoomexa128</p>
+        </div>
+        <div class="px-4 py-3 space-y-2 border-b">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="mobilePlan" checked disabled class="text-blue-500" />
+            <span class="text-sm text-gray-700 font-medium">Basic Plan (Selected)</span>
+          </label>
+          <label class="flex items-center space-x-2 opacity-50 cursor-not-allowed">
+            <input type="radio" name="mobilePlan" disabled />
+            <span class="text-sm text-gray-700 font-medium">Professional Plan (Locked)</span>
+          </label>
+        </div>
+        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
+        <a href="https://cpapro.github.io/cpapro/home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
+      </div>
+    </div>
   </div>
 
   <!-- Sidebar -->
@@ -68,8 +91,27 @@
         </button>
 
         <!-- Dropdown Menu -->
-        <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-2 hidden z-50">
-          
+        <div id="profileDropdown" class="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg py-2 hidden z-50">
+
+          <!-- User Info -->
+          <div class="px-4 py-2 border-b">
+            <p class="text-sm text-gray-600"><strong>User ID:</strong> 3271</p>
+            <p class="text-sm text-gray-600"><strong>Ref ID:</strong> Zoomexa128</p>
+          </div>
+
+          <!-- Plan Selection -->
+          <div class="px-4 py-3 space-y-2 border-b">
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="plan" checked disabled class="text-blue-500" />
+              <span class="text-sm text-gray-700 font-medium">Basic Plan (Selected)</span>
+            </label>
+            <label class="flex items-center space-x-2 opacity-50 cursor-not-allowed">
+              <input type="radio" name="plan" disabled />
+              <span class="text-sm text-gray-700 font-medium">Professional Plan (Locked)</span>
+            </label>
+          </div>
+
+          <!-- Profile Actions -->
           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</a>
           <a href="https://cpapro.github.io/cpapro/home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
         </div>
@@ -175,7 +217,7 @@
               <tr class="hover:bg-gray-50 transition">
                 <td class="py-4 px-6 font-medium">Click and Earn</td>
                 <td class="py-4 px-6">
-                  <span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full">Active</span>
+                  <span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">Inactive</span>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50 transition">
@@ -203,9 +245,9 @@
           <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
             <div class="flex items-center space-x-3">
               <span class="text-2xl">💰</span>
-              <span class="font-medium text-gray-700">Payment of $250 Sent to PayPal</span>
+              <span class="font-medium text-gray-700">Payment of $25 Sent to PayPal</span>
             </div>
-            <span class="text-xs text-gray-500">48 minutes ago</span>
+            <span class="text-xs text-gray-500">1 day ago</span>
           </div>
           <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition">
             <div class="flex items-center space-x-3">
@@ -223,10 +265,16 @@
 
   <!-- Scripts -->
   <script>
+    // Mobile profile dropdown
+    const mobileProfileButton = document.getElementById('mobileProfileButton');
+    const mobileProfileDropdown = document.getElementById('mobileProfileDropdown');
+    mobileProfileButton.addEventListener('click', () => {
+      mobileProfileDropdown.classList.toggle('hidden');
+    });
+
     // Profile dropdown
     const profileButton = document.getElementById('profileButton');
     const profileDropdown = document.getElementById('profileDropdown');
-
     profileButton.addEventListener('click', () => {
       profileDropdown.classList.toggle('hidden');
     });
@@ -234,7 +282,6 @@
     // Sidebar toggle
     const menuButton = document.getElementById('menuButton');
     const sidebar = document.getElementById('sidebar');
-
     menuButton.addEventListener('click', () => {
       sidebar.classList.toggle('-translate-x-full');
     });
