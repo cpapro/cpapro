@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
   <div class="flex h-screen">
 
     <!-- Sidebar -->
-    <aside class="w-64 bg-white border-r hidden md:flex flex-col">
+    <aside id="sidebar" class="w-64 bg-white border-r hidden md:flex flex-col">
       <div class="p-6 text-center border-b">
         <h1 class="text-2xl font-bold text-blue-600">CPA Pro</h1>
       </div>
@@ -38,7 +39,12 @@
 
       <!-- Top Bar -->
       <header class="bg-white shadow-md p-6 flex justify-between items-center">
-        <h2 class="text-2xl font-bold text-gray-800">Exclusive Offers</h2>
+        <div class="flex items-center">
+          <button id="sidebarToggle" class="md:hidden text-gray-600 focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h2 class="text-2xl font-bold text-gray-800 ml-4">Exclusive Offers</h2>
+        </div>
         <div class="text-gray-600">Welcome, <span class="font-semibold text-blue-600">Affiliate!</span></div>
       </header>
 
@@ -54,7 +60,7 @@
               </div>
               <div class="ml-4">
                 <p class="text-gray-500 text-sm">Total Offers</p>
-                <p class="text-2xl font-bold text-gray-800">3</p>
+                <p class="text-2xl font-bold text-gray-800">4</p>
               </div>
             </div>
           </div>
@@ -66,7 +72,7 @@
               </div>
               <div class="ml-4">
                 <p class="text-gray-500 text-sm">Top Payout</p>
-                <p class="text-2xl font-bold text-gray-800">$1.75 / Lead</p>
+                <p class="text-2xl font-bold text-gray-800">$5.50 / Sales</p>
               </div>
             </div>
           </div>
@@ -84,52 +90,81 @@
           </div>
         </div>
 
-        <!-- Offers Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       <!-- Offers Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          <!-- Offer Card -->
-          <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800">Click and Earn</h3>
-              <p class="text-gray-600 mt-2">Earn $0.87 per valid click. High converting offer for US traffic.</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-blue-600 font-semibold">$0.87 / Click</span>
-                <button onclick="openModal('Click and Earn', '$0.87 / Click', 'Deactive')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">Promote</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Offer Card -->
-          <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800">Mobile App Install</h3>
-              <p class="text-gray-600 mt-2">Get paid $1.20 for each app installation through your referral link.</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-green-600 font-semibold">$1.20 / Lead</span>
-                <button onclick="openModal('Mobile App Install', '$1.20 / Lead', 'Deactive')" class="px-4 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700">Promote</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Offer Card -->
-          <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800">Survey Complete</h3>
-              <p class="text-gray-600 mt-2">Earn $1.75 for every user who completes a simple survey.</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-yellow-600 font-semibold">$1.75 / Lead</span>
-                <button onclick="openModal('Survey Complete', '$1.75 / Lead', 'Deactive')" class="px-4 py-2 bg-yellow-600 text-white text-sm rounded hover:bg-yellow-700">Promote</button>
-              </div>
-            </div>
-          </div>
-
+  <!-- Offer Card 1 -->
+  <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-gray-800">Sales</h3>
+      <p class="text-gray-600 mt-2">Earn $0.80 per valid click. High-converting offer for US traffic.</p>
+      <div class="mt-4">
+        <span class="text-blue-600 font-semibold block mb-2">$0.80 / Click</span>
+        <div class="flex space-x-2">
+          <button onclick="openModal('Get traffic from only USA. Your offer link', '$0.80 / Click', 'Active')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">
+            Promote
+          </button>
+          <a href="https://tinyurl.com/sheikewomens" class="px-4 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-900">
+            View Offer
+          </a>
         </div>
-
-      </main>
-
+      </div>
     </div>
-
   </div>
+
+  <!-- Offer Card 2 -->
+  <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-gray-800">Mobile App Install</h3>
+      <p class="text-gray-600 mt-2">Get paid $1.20 for each app installation through your referral link.</p>
+      <div class="mt-4">
+        <span class="text-green-600 font-semibold block mb-2">$1.20 / Lead</span>
+        <div class="flex space-x-2">
+          <button onclick="openModal('Mobile App Install', '$1.20 / Lead', 'Deactive')" class="px-4 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700">
+            Promote
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offer Card 3 -->
+  <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-gray-800">Survey Complete</h3>
+      <p class="text-gray-600 mt-2">Earn $1.75 for every user who completes a simple survey.</p>
+      <div class="mt-4">
+        <span class="text-yellow-600 font-semibold block mb-2">$1.75 / Lead</span>
+        <div class="flex space-x-2">
+          <button onclick="openModal('Survey Complete', '$1.75 / Lead', 'Deactive')" class="px-4 py-2 bg-yellow-600 text-white text-sm rounded hover:bg-yellow-700">
+            Promote
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offer Card 4 -->
+  <div class="bg-white shadow-lg rounded-lg hover:shadow-2xl transition">
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-gray-800">Get More Sales</h3>
+      <p class="text-gray-600 mt-2">Earn $0.75 per valid click. High-converting offer for US traffic and get more sales.</p>
+      <div class="mt-4">
+        <span class="text-blue-600 font-semibold block mb-2">$0.75 / Click</span>
+        <div class="flex space-x-2">
+          <button onclick="openModal('Get traffic from only USA. Your offer link', '$0.75 / Click', 'Active')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">
+            Promote
+          </button>
+          <a href="https://tinyurl.com/4jyzw6wu" class="px-4 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-900">
+            View Offer
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 
   <!-- Offer Modal -->
   <div id="offerModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
@@ -157,6 +192,11 @@
     function closeModal() {
       document.getElementById('offerModal').classList.add('hidden');
     }
+
+    // Toggle Sidebar on mobile
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('hidden');
+    });
   </script>
 
 </body>
