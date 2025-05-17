@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,27 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-<div class="flex h-screen">
+<!-- Mobile Top Bar -->
+<div class="md:hidden flex items-center justify-between p-4 bg-blue-600 text-white">
+  <h1 class="text-xl font-bold">CPA Pro</h1>
+  <button onclick="toggleSidebar()" class="focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</div>
+
+<div class="flex h-screen relative">
   <!-- Sidebar -->
-  <aside class="w-64 bg-blue-600 shadow-md hidden md:block text-white">
+  <aside id="sidebar" class="w-64 bg-blue-600 shadow-md text-white fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:static transition-transform duration-300 ease-in-out z-40">
     <div class="p-6 text-center">
       <h1 class="text-2xl font-bold">CPA Pro</h1>
     </div>
     <nav class="mt-10 px-6 space-y-4">
       <a href="dash.html" class="block text-white hover:text-gray-200">Dashboard</a>
       <a href="off.html" class="block text-white hover:text-gray-200">Offers</a>
-      
       <a href="with.html" class="block text-white font-bold underline">Withdraw</a>
-      <a href="sett.html" class="block text-white hover:text-gray-200">Settings</a>
+      <a href="set.html" class="block text-white hover:text-gray-200">Settings</a>
       <a href="home.html" class="block text-red-500 mt-6">Sign Out</a>
     </nav>
   </aside>
@@ -59,7 +69,7 @@
       </form>
     </div>
 
-    <!-- History Table -->
+    <!-- Withdrawal History -->
     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Withdrawal History</h3>
     <div class="bg-white shadow-lg rounded-lg overflow-x-auto">
       <table class="min-w-full text-left" id="historyTable">
@@ -78,10 +88,56 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Recent Withdrawals of Other Users -->
+    <h3 class="text-2xl font-semibold text-gray-800 mt-10 mb-4">Recent Withdrawals of Other Users</h3>
+    <div class="bg-white shadow-lg rounded-lg overflow-x-auto">
+      <table class="min-w-full text-left">
+        <thead class="bg-gray-200 text-gray-700 uppercase text-sm">
+          <tr>
+            <th class="px-6 py-3">User</th>
+            <th class="px-6 py-3">Date</th>
+            <th class="px-6 py-3">Method</th>
+            <th class="px-6 py-3">Amount</th>
+            <th class="px-6 py-3">Status</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-800">
+          <tr>
+            <td class="px-6 py-4">user09</td>
+            <td class="px-6 py-4">05/16/2025</td>
+            <td class="px-6 py-4">Paypal </td>
+            <td class="px-6 py-4">$420.00</td>
+            <td class="px-6 py-4"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Approved</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">user173</td>
+            <td class="px-6 py-4">05/16/2025</td>
+            <td class="px-6 py-4">Bitcoin</td>
+            <td class="px-6 py-4">$65.20</td>
+            <td class="px-6 py-4"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Approved</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">user281</td>
+            <td class="px-6 py-4">05/16/2025</td>
+            <td class="px-6 py-4">Wire transfer</td>
+            <td class="px-6 py-4">$197.50</td>
+            <td class="px-6 py-4"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Approved</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
 
+<!-- Scripts -->
 <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('-translate-x-full');
+  }
+
   const form = document.getElementById("withdrawalForm");
   const error = document.getElementById("error");
   const tableBody = document.getElementById("historyBody");
@@ -115,10 +171,8 @@
 
     error.classList.add("hidden");
 
-    // Show popup
     alert("Your withdrawal request is pending!");
 
-    // Add to table
     const row = document.createElement("tr");
     row.innerHTML = `
       <td class="px-6 py-4">${new Date().toLocaleDateString()}</td>
@@ -135,9 +189,10 @@
     tableBody.prepend(row);
     form.reset();
 
-    // Cancel button logic
     row.querySelector(".cancelBtn").addEventListener("click", function () {
-      row.remove();
+      if (confirm("Are you sure you want to cancel this request?")) {
+        row.remove();
+      }
     });
   });
 </script>
