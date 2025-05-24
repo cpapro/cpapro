@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,6 +152,36 @@
     wire: 100
   };
 
+  function renderPendingWithdraw(data) {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="px-6 py-4">${data.date}</td>
+      <td class="px-6 py-4">${data.method}</td>
+      <td class="px-6 py-4">$${data.amount.toFixed(2)}</td>
+      <td class="px-6 py-4">${data.address}</td>
+      <td class="px-6 py-4">
+        <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Pending</span>
+      </td>
+      <td class="px-6 py-4">
+        <button class="text-red-600 hover:text-red-800 text-sm cancelBtn">Cancel</button>
+      </td>
+    `;
+    tableBody.prepend(row);
+    row.querySelector(".cancelBtn").addEventListener("click", function () {
+      if (confirm("Are you sure you want to cancel this request?")) {
+        row.remove();
+        localStorage.removeItem("pendingWithdraw");
+      }
+    });
+  }
+
+  // Load saved pending withdrawal from localStorage
+  const saved = localStorage.getItem("pendingWithdraw");
+  if (saved) {
+    const data = JSON.parse(saved);
+    renderPendingWithdraw(data);
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const amount = parseFloat(document.getElementById("amount").value);
@@ -175,27 +204,16 @@
 
     alert("Your withdrawal request is pending!");
 
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td class="px-6 py-4">${new Date().toLocaleDateString()}</td>
-      <td class="px-6 py-4">${method.charAt(0).toUpperCase() + method.slice(1)}</td>
-      <td class="px-6 py-4">$${amount.toFixed(2)}</td>
-      <td class="px-6 py-4">${address}</td>
-      <td class="px-6 py-4">
-        <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Pending</span>
-      </td>
-      <td class="px-6 py-4">
-        <button class="text-red-600 hover:text-red-800 text-sm cancelBtn">Cancel</button>
-      </td>
-    `;
-    tableBody.prepend(row);
-    form.reset();
+    const data = {
+      date: new Date().toLocaleDateString(),
+      method: method.charAt(0).toUpperCase() + method.slice(1),
+      amount: amount,
+      address: address
+    };
 
-    row.querySelector(".cancelBtn").addEventListener("click", function () {
-      if (confirm("Are you sure you want to cancel this request?")) {
-        row.remove();
-      }
-    });
+    localStorage.setItem("pendingWithdraw", JSON.stringify(data));
+    renderPendingWithdraw(data);
+    form.reset();
   });
 </script>
 
